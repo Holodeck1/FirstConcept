@@ -3,10 +3,17 @@ FirstConcept
 
 First attempt at controlling the Nao using C#
 
+using System;
+using System.Diagnostics;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+//Allows access to the OpenMetaverse Library
+using OpenMetaverse;
 
-/*
-This is the code that will communicate from the virtual world to the application
-*/
+//This is the code that will communicate from the virtual world to the application
+
 class MyFirstBot
     {
         //This contains all the funtions that are required for the bot to communicate with the second life grid.
@@ -80,3 +87,4 @@ class MyFirstBot
         }
     }
 }
+
