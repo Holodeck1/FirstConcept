@@ -87,6 +87,7 @@ namespace FirstConcept
                     cam.Connect(ip, CurrentImageFormat, kColorSpace, kFps);
                     CamBitmap = new Bitmap(CurrentImageFormat.width, CurrentImageFormat.height, PixelFormat.Format24bppRgb);
                     timer1.Interval = (int)Math.Ceiling(1000.0 / kFps);
+                    _naoCamInitialised = true;
                 }
 
             }
@@ -310,7 +311,8 @@ namespace FirstConcept
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            UpdateScreen(sender, e);
         }
+        
     }
 }

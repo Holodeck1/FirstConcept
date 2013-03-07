@@ -10,3 +10,11 @@ c:\users\wrightedge lsfl 014\documents\visual studio 2012\Projects\FirstConcept\
 c:\users\wrightedge lsfl 014\documents\visual studio 2012\Projects\FirstConcept\FirstConcept\obj\Debug\FirstConcept.pdb
 C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\obj\Debug\FirstConcept.exe
 C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\obj\Debug\FirstConcept.pdb
+C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\bin\Debug\FirstConcept.exe
+C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\bin\Debug\FirstConcept.pdb
+C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\bin\Debug\naoqi-dotnet4.dll
+C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\bin\Debug\naoqi-dotnet4.xml
+C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\obj\Debug\FirstConcept.csprojResolveAssemblyReference.cache
+C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\obj\Debug\FirstConcept.Form1.resources
+C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\obj\Debug\FirstConcept.Properties.Resources.resources
+C:\Users\WrightEdge LSFL 014\Desktop\FirstConcept\FirstConcept\obj\Debug\FirstConcept.csproj.GenerateResource.Cache
