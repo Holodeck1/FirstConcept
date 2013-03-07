@@ -1,6 +1,6 @@
 ﻿namespace FirstConcept
 {
-    partial class Form1
+    partial class GUImanualMotion
     {
         /// <summary>
         /// Required designer variable.
@@ -35,8 +35,8 @@
             this.Connect = new System.Windows.Forms.Button();
             this.kill = new System.Windows.Forms.Button();
             this.iPGetter = new System.Windows.Forms.TextBox();
-            this.speach = new System.Windows.Forms.TextBox();
-            this.textToSpeach = new System.Windows.Forms.Button();
+            this.speech = new System.Windows.Forms.TextBox();
+            this.textToSpeech = new System.Windows.Forms.Button();
             this.errorTicker = new System.Windows.Forms.TextBox();
             this.rest = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -102,23 +102,23 @@
             this.iPGetter.TabIndex = 5;
             this.iPGetter.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // speach
+            // speech
             // 
-            this.speach.Location = new System.Drawing.Point(473, 412);
-            this.speach.Name = "speach";
-            this.speach.Size = new System.Drawing.Size(494, 22);
-            this.speach.TabIndex = 6;
-            this.speach.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.speech.Location = new System.Drawing.Point(473, 412);
+            this.speech.Name = "speech";
+            this.speech.Size = new System.Drawing.Size(494, 22);
+            this.speech.TabIndex = 6;
+            this.speech.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
-            // textToSpeach
+            // textToSpeech
             // 
-            this.textToSpeach.Location = new System.Drawing.Point(1009, 404);
-            this.textToSpeach.Name = "textToSpeach";
-            this.textToSpeach.Size = new System.Drawing.Size(75, 30);
-            this.textToSpeach.TabIndex = 7;
-            this.textToSpeach.Text = "Say";
-            this.textToSpeach.UseVisualStyleBackColor = true;
-            this.textToSpeach.Click += new System.EventHandler(this.textToSpeach_Click);
+            this.textToSpeech.Location = new System.Drawing.Point(1009, 404);
+            this.textToSpeech.Name = "textToSpeech";
+            this.textToSpeech.Size = new System.Drawing.Size(75, 30);
+            this.textToSpeech.TabIndex = 7;
+            this.textToSpeech.Text = "Say";
+            this.textToSpeech.UseVisualStyleBackColor = true;
+            this.textToSpeech.Click += new System.EventHandler(this.textToSpeech_Click);
             // 
             // errorTicker
             // 
@@ -151,7 +151,7 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // GUImanualMotion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,15 +159,15 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rest);
             this.Controls.Add(this.errorTicker);
-            this.Controls.Add(this.textToSpeach);
-            this.Controls.Add(this.speach);
+            this.Controls.Add(this.textToSpeech);
+            this.Controls.Add(this.speech);
             this.Controls.Add(this.iPGetter);
             this.Controls.Add(this.kill);
             this.Controls.Add(this.Connect);
             this.Controls.Add(this.moveLeftClicked);
             this.Controls.Add(this.moveRightClicked);
             this.Controls.Add(this.forwardClicked);
-            this.Name = "Form1";
+            this.Name = "GUImanualMotion";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -183,8 +183,8 @@
         private System.Windows.Forms.Button Connect;
         private System.Windows.Forms.Button kill;
         private System.Windows.Forms.TextBox iPGetter;
-        private System.Windows.Forms.TextBox speach;
-        private System.Windows.Forms.Button textToSpeach;
+        private System.Windows.Forms.TextBox speech;
+        private System.Windows.Forms.Button textToSpeech;
         private System.Windows.Forms.TextBox errorTicker;
         private System.Windows.Forms.Button rest;
         private System.Windows.Forms.PictureBox pictureBox1;

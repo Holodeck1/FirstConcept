@@ -10,7 +10,7 @@ namespace FirstConcept
 //This is the code that will communicate from the virtual world to the application
 
 class Bot { //This contains all the funtions that are required for the bot to communicate with the second life grid. public static GridClient Client = new GridClient();
-    public GridClient Client = new GridClient();
+    public static GridClient Client = new GridClient();
     //Login information for the grid
     private static string first_name;
     private static string last_name;

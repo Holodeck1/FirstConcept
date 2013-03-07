@@ -14,7 +14,7 @@ using Aldebaran.Proxies;
 namespace FirstConcept
 {
 
-    public partial class Form1 : Form
+    public partial class GUImanualMotion : Form
     {
         private Camera cam = null;
         private const int kColorSpace = 13; // BGR
@@ -27,7 +27,7 @@ namespace FirstConcept
         String IP = null;
         int x = 0, port = 9559, timeInterval = 500;
        
-        public Form1()
+        public GUImanualMotion()
         {
             InitializeComponent();
             cam = new Camera();
@@ -46,21 +46,21 @@ namespace FirstConcept
 
         }
 
-        private void textToSpeach_Click(object sender, EventArgs e)
+        private void textToSpeech_Click(object sender, EventArgs e)
         {
 
-            Control[] cs = this.Controls.Find("speach", true);
+            Control[] cs = this.Controls.Find("speech", true);
             TextBox tb = (TextBox)cs[0];
             string textToSay = tb.Text;
             this.textToSay = textToSay;
          try{
              TextToSpeechProxy tts = new TextToSpeechProxy(IP, port);
                 tts.say(textToSay);
-                speach.Text = textToSay;
+                speech.Text = textToSay;
             }
           catch
             {
-                speach.Text = "could not connect!!!";
+                speech.Text = "could not connect!!!";
 
             }
 
@@ -68,28 +68,19 @@ namespace FirstConcept
 
         private void Connect_Click(object sender, EventArgs e)
         {
-            Control[] cs = this.Controls.Find("iPGetter", true);
-            TextBox tb = (TextBox)cs[0];
-            string ip = tb.Text;
-            this.IP = ip;
+            this.IP=iPGetter.Text;
+            //Control[] cs = this.Controls.Find("iPGetter", true);
+            //TextBox tb = (TextBox)cs[0];
+            //string ip = tb.Text;
+            //this.IP = ip;
             try
             {
-                MotionProxy wake = new MotionProxy(ip, port);
-                if (!wake.robotIsWakeUp()) { wake.wakeUp(); } // puts robot into intial position * I think*
-                if (wake.robotIsWakeUp()) // checks for definite connection
-                {
-                    wake.setFallManagerEnabled(true); // detects fall, and protects
-                    MessageBox.Show("You have succesfully connected!");
-                    Aldebaran.Proxies.LedsProxy led = new LedsProxy(ip, port); // led proxy
-                    led.randomEyes(3);
-                    RobotPostureProxy post = new RobotPostureProxy(ip, port);
-                    post.goToPosture("StandInit", 1.0f);
-                    cam.Connect(ip, CurrentImageFormat, kColorSpace, kFps);
+                Robotic_Motion rm = new Robotic_Motion(IP, port);
+                rm.wake();
+                    cam.Connect(IP, CurrentImageFormat, kColorSpace, kFps);
                     CamBitmap = new Bitmap(CurrentImageFormat.width, CurrentImageFormat.height, PixelFormat.Format24bppRgb);
                     timer1.Interval = (int)Math.Ceiling(1000.0 / kFps);
                     _naoCamInitialised = true;
-                }
-
             }
             catch { MessageBox.Show("Primary Connection failed! Oh No!"); }
 
@@ -312,7 +303,8 @@ namespace FirstConcept
         private void timer1_Tick(object sender, EventArgs e)
         {
             UpdateScreen(sender, e);
-        }
+            Robotic_Motion rm = new Robotic_Motion(IP, port);
+            }
         
     }
 }
