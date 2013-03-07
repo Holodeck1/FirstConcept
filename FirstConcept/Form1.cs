@@ -75,11 +75,11 @@ namespace FirstConcept
             try
             {
                 MotionProxy wake = new MotionProxy(ip, port);
-                if(!wake.robotIsWakeUp()){wake.wakeUp();} // puts robot into intial position * I think*
+                if (!wake.robotIsWakeUp()) { wake.wakeUp(); } // puts robot into intial position * I think*
                 if (wake.robotIsWakeUp()) // checks for definite connection
                 {
                     wake.setFallManagerEnabled(true); // detects fall, and protects
-                    MessageBox.Show("You have succesfully connected!"); 
+                    MessageBox.Show("You have succesfully connected!");
                     Aldebaran.Proxies.LedsProxy led = new LedsProxy(ip, port); // led proxy
                     led.randomEyes(3);
                     RobotPostureProxy post = new RobotPostureProxy(ip, port);
@@ -88,19 +88,56 @@ namespace FirstConcept
                     CamBitmap = new Bitmap(CurrentImageFormat.width, CurrentImageFormat.height, PixelFormat.Format24bppRgb);
                     timer1.Interval = (int)Math.Ceiling(1000.0 / kFps);
                 }
-                if (_naoCamInitialised && !timer1.Enabled)
-                {
-                    timer1.Start(); 
-                }
-            }
-           catch { MessageBox.Show("Primary Connection failed! Oh No!"); }
-        }
 
+            }
+            catch { MessageBox.Show("Primary Connection failed! Oh No!"); }
+
+            if (_naoCamInitialised && !timer1.Enabled)
+            {
+                timer1.Start();
+            }
+        }
         void UpdateScreen(object sender, EventArgs e)
         {
-
+            camImageToPictureBox(pictureBox1); // calls the camimage method to fill the picturebox on the form
         }
 
+        private bool updatingPicture = false;
+        void camImageToPictureBox(PictureBox pb)
+        {
+            if (_naoCamInitialised && !updatingPicture)
+            {
+                updatingPicture = true; // lets the form know its now updating the picture
+            }
+            try
+            {
+                byte[] imageBytes = cam.getImage(); // gets a stream of bytes, in the form of an arry from the camera
+                if (imageBytes != null)
+                {
+                    unsafe
+                    {
+                        BitmapData bm = CamBitmap.LockBits(new Rectangle(0, 0, CamBitmap.Width, CamBitmap.Height), 
+                            ImageLockMode.WriteOnly, PixelFormat.Format24bppRgb);
+
+                        // pixel pointer
+                        byte* p = (byte*)bm.Scan0; // byte p, is set to first byte in the bitmap bm
+                        int diff = bm.Stride - CamBitmap.Width * 3; // vodoo
+                        for (int i = 0; i < imageBytes.Length; i++)
+                        {
+                            *p++ = imageBytes[i];
+                            if (i % (CamBitmap.Width * 3) == 0 && i > 0)
+                            {
+                                p += diff;
+                            }
+                        }
+                        CamBitmap.UnlockBits(bm);
+                    }
+                    pb.Image = CamBitmap;
+                }
+            }
+            catch { MessageBox.Show("error connecting to Camera!"); }
+
+        }
         private void forwardClicked_Click(object sender, EventArgs e)
         {
             x = 1;
